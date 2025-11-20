@@ -11,7 +11,6 @@ This project integrates **Cloudflare Email Router**, **AWS Lambda**, and **Teleg
 
 
 - Cloudflare Email Router – Handles incoming emails and routes them to the system.
-- Group Email Generation – Provides a unique email address for each Telegram user.
 
 ---
 
