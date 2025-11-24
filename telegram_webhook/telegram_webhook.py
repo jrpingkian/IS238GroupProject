@@ -56,7 +56,7 @@ def lambda_handler(event, context):
             return answer_callback(cq["id"], "Cancelled")
     return {"statusCode": 200, "body": ""}
 
-# helper functions interacting with Telegram API directly
+## helper functions interacting with Telegram API directly
 def post_telegram_api(method, payload):
     import requests
     token = get_telegram_token()  # Loads from Secrets Manager
@@ -71,6 +71,7 @@ def respond_text(chat_id, text):
     return {"statusCode": 200, "body": "ok"}
 
 def handle_new_address(chat_id):
+    
     # generate random local-part
     local = uuid.uuid4().hex[:10]
     email_addr = f"{local}@{COMPANY_DOMAIN}"
@@ -95,6 +96,7 @@ def handle_new_address(chat_id):
     )
     post_telegram_api("sendMessage", {"chat_id": chat_id, "text": message, "parse_mode": "HTML"})
     return {"statusCode": 200, "body": "created"}
+
 
 def handle_list_addresses(chat_id):
     # scan (filter by telegram_user_id)
