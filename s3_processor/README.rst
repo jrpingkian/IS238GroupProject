@@ -41,8 +41,17 @@ S3 (new email) → Lambda → Parse email → Extract recipient
    Telegram → Send summary to user
 
 
+------------------------------------------------------------
 
-This is a dummy package designed to prevent namesquatting on PyPI. You should install `beautifulsoup4 <https://pypi.python.org/pypi/beautifulsoup4>`_ instead.
+The program takes the subject line and the body text of the email it just read..
 
+It then creates a simple instruction (called a prompt) that says something like: 
+“Summarize this email briefly: Subject: … Body: …”
+
+That instruction is sent to OpenAI’s AI service (basically, a smart text‑summarizing robot).,
+
+The AI reads the email content and produces a short,  easy‑to‑understand summary.
+
+If something goes wrong (like the AI service is unavailable),  the program just says “Failed generating summary.” instead of crashing.
 
 
